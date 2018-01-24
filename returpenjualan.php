@@ -134,7 +134,7 @@ $cmd = $_GET["cmd"];
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1>
-        Laporan Penerimaan Barang
+        Penerimaan Retur Barang Penjualan
       </h1>
     </section>
     <!-- Main content -->
@@ -145,7 +145,7 @@ $cmd = $_GET["cmd"];
             
             <!-- /.box-header -->
             <fieldset>
-              <legend style="text-align: center;">Data Laporan Penerimaan Barang</legend>
+              <legend style="text-align: center;">Data Penerimaan Retur Penjualan</legend>
               <form class="form-horizontal">
               <?php 
               $resultPembelian = ReturPenjualan($cmd);
@@ -188,6 +188,17 @@ $cmd = $_GET["cmd"];
                         <label for=inputUserKaryawan class=col-sm-2 control-label>Jumlah</label>
                           <div class=col-sm-10>
                             <input type=number name=jumlah[] placeholder='Jumlah terima menurut LPB = ".$rowKirim->kuantitas."' required autofocus class=form-control>
+                            <input type=hidden name=nama[] value='".$rowKirim->namaBarang."'>
+                            <input type=hidden name=satuan[] value='".$rowKirim->satuan."'>
+                          </div>
+                      </div>
+                      <div class=form-group>
+                        <label for=inputUserKaryawan class=col-sm-2 control-label>Terima sebagai stok rusak</label>
+                          <div class=col-sm-10>
+                            <select name=terima[] class=form-control>
+                              <option value=tidak>Tidak</option>
+                              <option value=terima>Terima</option>
+                            </select>
                           </div>
                       </div>              
                     </div>";
@@ -242,13 +253,20 @@ $cmd = $_GET["cmd"];
     var id ="";
     var cekqty=0;
     var barang = [];
+    var nama = [];
     var qty = [];
+    var satuan = [];
+    var terima = [];
     var selesai = 0;
     $('input[name="noNota"]').each( function(){ id = $(this).val(); });
     $('select[name="idBarang[]"]').each( function(){ barang.push($(this).val()); });
     $('input[name="jumlah[]"]').each( function(){ qty.push($(this).val()); });
+    $('input[name="nama[]"]').each( function(){ nama.push($(this).val()); });
+    $('input[name="satuan[]"]').each( function(){ satuan.push($(this).val()); });
+    $('select[name="terima[]"]').each( function(){ terima.push($(this).val()); });
     for( i = 0 ;i < barang.length ; i++){
-      $.ajax({
+      if(terima[i]=="tidak"){
+        $.ajax({
         type: "POST",
         url: "manage.php?act=returpenjualanbarang",
         data: 'noNota=' + id+ '&barang_id=' + barang[i]+ '&qty=' + qty[i],
@@ -258,6 +276,19 @@ $cmd = $_GET["cmd"];
             window.location ="penerimaanreturpenjualan.php";
           }
       }});
+      }
+      else if(terima[i]==terima){
+        $.ajax({
+        type: "POST",
+        url: "manage.php?act=returpenjualanbarangrusak",
+        data: 'noNota=' + id+ '&barang_id=' + barang[i]+ '&qty=' + qty[i] +'&nama='+nama[i]+'$satuan='+satuan[i],
+        success: function(result) {
+          selesai++;
+          if(selesai == barang.length){
+            window.location ="penerimaanreturpenjualan.php";
+          }
+      }});
+      }
     } 
   });
 </script>

@@ -187,7 +187,7 @@
     }
     Function ReturPenjualanBarang($pid){
         require 'db.php';
-        $sqlKirimPembelian = "SELECT pb.Barang_idBarang,b.namaBarang,pb.kuantitas,pb.harga FROM penjualan_has_barang pb , barang b where pb.Penjualan_idNota = '".$pid."' and pb.Barang_idBarang = b.idBarang";
+        $sqlKirimPembelian = "SELECT pb.Barang_idBarang,b.namaBarang,b.satuan,pb.kuantitas,pb.harga FROM penjualan_has_barang pb , barang b where pb.Penjualan_idNota = '".$pid."' and pb.Barang_idBarang = b.idBarang";
         $resultKirimPembelian = mysqli_query($link, $sqlKirimPembelian);
         return $resultKirimPembelian;
     }
