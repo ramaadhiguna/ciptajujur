@@ -148,7 +148,7 @@ $cmd = $_GET["cmd"];
               <legend style="text-align: center;">Data Laporan Penerimaan Barang</legend>
               <form class="form-horizontal">
               <?php 
-              $resultPembelian = POPembelian($cmd);
+              $resultPembelian = Retur($cmd);
               if($row = mysqli_fetch_object($resultPembelian)){
                 echo "<div class=box-body>
                   <div class=form-group>
@@ -167,14 +167,13 @@ $cmd = $_GET["cmd"];
                   <label for=inputNamaKaryawan class=col-sm-2 control-label>Nama Perusahaan</label>
                     <div class=col-sm-10>
                       <input type=text value='".$row->nama."'' disabled autofocus class=form-control>
-                      <input type=hidden name=supplier value='".$row->idSupplier."'>
                     </div>
                   </div>
                 </div>";
               }
               ?>
               <?php
-              $resultKirim = LPBPOPembelian($cmd);
+              $resultKirim = ReturBarang($cmd);
               while($rowKirim = mysqli_fetch_object($resultKirim)){
               echo "<div class=box-body>
                       <div class=form-group>
@@ -188,14 +187,14 @@ $cmd = $_GET["cmd"];
                       <div class=form-group>
                         <label for=inputUserKaryawan class=col-sm-2 control-label>Jumlah</label>
                           <div class=col-sm-10>
-                            <input type=number name=jumlah[] placeholder='Jumlah terima menurut LPB = ".$rowKirim->qty."' required autofocus class=form-control>
+                            <input type=number name=jumlah[] placeholder='Jumlah terima menurut LPB = ".$rowKirim->kuantitas."' required autofocus class=form-control>
                           </div>
                       </div>              
                     </div>";
                   }
               ?>
               <?php
-              $resultKirim = LPBPOPembelianBahan($cmd);
+              $resultKirim = ReturBahan($cmd);
               while($rowKirimb = mysqli_fetch_object($resultKirim)){
               echo "<div class=box-body>
                       <div class=form-group>
@@ -209,7 +208,7 @@ $cmd = $_GET["cmd"];
                       <div class=form-group>
                         <label for=inputUserKaryawan class=col-sm-2 control-label>Jumlah</label>
                           <div class=col-sm-10>
-                            <input type=number name=jumlahb[] placeholder='".$rowKirimb->panjang."'required autofocus class=form-control>
+                            <input type=number name=jumlahb[] placeholder='Jumlah terima menurut LPB = ".$rowKirimb->kuantitas."'required autofocus class=form-control>
                             <input type=hidden name=hargab[] value=".$rowKirimb->harga.">
                           </div>
                       </div>              
@@ -262,7 +261,6 @@ $cmd = $_GET["cmd"];
 <!-- page script -->
 <script>
   $("#Kirim").click(function(){
-    alert("lol");
     var id ="";
     var cekqty=0;
     var barang = [];
@@ -287,18 +285,18 @@ $cmd = $_GET["cmd"];
           }
       }});
     } 
-    /*for( i = 0 ;i < bahan.length ; i++){
+    for( i = 0 ;i < bahan.length ; i++){
       $.ajax({
         type: "POST",
         url: "manage.php?act=returpembelianbahan",
-        data: 'noNota=' + noNota+ '&barang_id=' + bahan[i]+ '&qty=' + qtyb[i],
+        data: 'noNota=' + id+ '&barang_id=' + bahan[i]+ '&qty=' + qtyb[i],
         success: function(result) {
           selesai++;
           if(selesai == bahan.length+barang.length){
-            window.location = "statuspembelian.php";  
+            window.location = "returbarang.php";  
           }
       }});
-    }*/
+    }
   });
 </script>
 <script>
