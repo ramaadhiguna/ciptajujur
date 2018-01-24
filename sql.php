@@ -79,12 +79,32 @@
     
 
     //Function
+    function CekTotalBarang($kid){
+        require 'db.php';
+        $sqlCariKategori = "SELECT p.id, sum(pb.kuantitas*pb.harga) as total FROM pembelian p, pembelian_has_barang pb WHERE p.id = pb.Pembelian_id and p.id = ".$pid." group by p.id";
+        $resultCariKategori = mysqli_query($link,$sqlCariKategori);
+        $rowCariKategori = mysqli_fetch_object($resultCariKategori);
+        return $rowCariKategori->nama;
+    }
+    function CekTotalBahan($kid){
+        require 'db.php';
+        $sqlCariKategori = "SELECT p.id, sum(pb.kuantitas*pb.harga) as total FROM pembelian p, pembelian_has_bahan pb WHERE p.id = pb.Pembelian_id and p.id = ".$pid." group by p.id";
+        $resultCariKategori = mysqli_query($link,$sqlCariKategori);
+        $rowCariKategori = mysqli_fetch_object($resultCariKategori);
+        return $rowCariKategori->nama;
+    }
     function Kategori($kid){
         require 'db.php';
         $sqlCariKategori = "SELECT * FROM `kategori` WHERE id ='".$kid."';";
         $resultCariKategori = mysqli_query($link,$sqlCariKategori);
         $rowCariKategori = mysqli_fetch_object($resultCariKategori);
         return $rowCariKategori->nama;
+    }
+    function Retur($pid){
+        require 'db.php';
+        $sqlBahan = "SELECT p.id, p.tanggal, p.saldo,s.nama FROM pembelian p, supplier s WHERE p.Supplier_idSupplier = s.idSupplier and p.id ='".$pid."'";
+        $resultBahan = mysqli_query($link,$sqlBahan);
+        return $resultBahan;
     }
     function ProduksiBahan($pid){
         require 'db.php';
@@ -159,9 +179,21 @@
         $resultKirimPembelian = mysqli_query($link, $sqlKirimPembelian);
         return $resultKirimPembelian;
     }
+    Function ReturBarang($pid){
+        require 'db.php';
+        $sqlKirimPembelian = "SELECT pb.Barang_idBarang,b.namaBarang,pb.kuantitas,pb.harga FROM pembelian_has_barang pb , barang b where pb.Pembelian_id = '".$pid."' and pb.Barang_idBarang = b.idBarang";
+        $resultKirimPembelian = mysqli_query($link, $sqlKirimPembelian);
+        return $resultKirimPembelian;
+    }
     Function LPBPOPembelianBahan($pid){
         require 'db.php';
         $sqlKirimPembelian = "SELECT pb.bahan_id,b.nama,pb.panjang,pb.harga,pb.saldo FROM pembelianPO_has_bahan pb , bahan b where pb.PembelianPO_id = '".$pid."' and pb.bahan_id = b.id";
+        $resultKirimPembelian = mysqli_query($link, $sqlKirimPembelian);
+        return $resultKirimPembelian;
+    }
+    Function ReturBahan($pid){
+        require 'db.php';
+        $sqlKirimPembelian = "SELECT pb.bahan_id,b.nama,pb.kuantitas,pb.harga FROM pembelian_has_bahan pb , bahan b where pb.Pembelian_id = '".$pid."' and pb.bahan_id = b.id";
         $resultKirimPembelian = mysqli_query($link, $sqlKirimPembelian);
         return $resultKirimPembelian;
     }
