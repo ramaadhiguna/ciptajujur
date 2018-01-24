@@ -81,7 +81,7 @@
     //Function
     function CekTotalBarang($kid){
         require 'db.php';
-        $sqlCariKategori = "SELECT p.id, sum(pb.kuantitas*pb.harga) as total FROM pembelian p, pembelian_has_barang pb WHERE p.id = pb.Pembelian_id and p.id = ".$pid." group by p.id";
+        $sqlCariKategori = "SELECT p.id, sum(pb.kuantitas*pb.harga) as total FROM pembelian p, pembelian_has_barang pb WHERE p.id = pb.Pembelian_id and p.id = 180124001 group by p.id";
         $resultCariKategori = mysqli_query($link,$sqlCariKategori);
         $rowCariKategori = mysqli_fetch_object($resultCariKategori);
         return $rowCariKategori->nama;
