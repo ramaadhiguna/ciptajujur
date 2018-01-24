@@ -15,119 +15,24 @@
       <tr>
           <th> Supplier </th>
           <th> Tanggal Faktur </th>
-          <th> Nominal </th>
-          <th> Perbulan </th>
+          <th> Nominal (Per tanggal) </th>
+          <th> Per bulan </th>
+          <th> Total </th>
+          <th> Jatuh Tempo </th>
       </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-        <td colspan="3" id="totaltable"> Total </td>
-        <td> Rp. 84.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-        <td colspan="3" id="totaltable"> Total </td>
-        <td> Rp. 84.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-        <td colspan="3" id="totaltable"> Total </td>
-        <td> Rp. 84.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-        <td colspan="3" id="totaltable"> Total </td>
-        <td> Rp. 84.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-          <td> CV Coba </td>
-          <td> 28-12-2018 </td>
-          <td> RP. 28.000.000 </td>
-          <td> Rp. 10.000.000 </td>
-      </tr>
-      <tr>
-        <td colspan="3" id="totaltable"> Total </td>
-        <td> Rp. 84.000.000 </td>
-      </tr>
+      <?php 
+      $sql = "SELECT * FROM pembelian WHERE saldo = 0";
+      $result = mysqli_query($link,$sql);
+      $resultTotalUtang = PembayaranPembelian();
+      while ($row = mysqli_fetch_object($result)) {
+        echo "<tr>";
+        echo "<td>" . $row->Supplier_idSupplier . "</td>";
+        echo "<td>" . $row->tanggal . "</td>";
+        echo "<td>" . $row->saldo . "</td>";
+        echo "</tr>";
+        # code...
+      }
+      ?> 
   </table>
   </div>
   </div>
