@@ -106,6 +106,12 @@
         $resultBahan = mysqli_query($link,$sqlBahan);
         return $resultBahan;
     }
+    function ReturPenjualan($pid){
+        require 'db.php';
+        $sqlBahan = "SELECT p.idNota, p.tanggal, p.saldo,s.nama FROM penjualan p, customer s WHERE p.Customer_idCustomer = s.idCustomer and p.idNota ='".$pid."'";
+        $resultBahan = mysqli_query($link,$sqlBahan);
+        return $resultBahan;
+    }
     function ProduksiBahan($pid){
         require 'db.php';
         $sqlBahan = "SELECT pb.Produksi_id, b.namaBarang, pb.kuantitas, b.satuan FROM barang b, produksi_has_barang pb WHERE pb.Produksi_id = '".$pid."' and pb.Barang_idBarang = b.idBarang and pb.jenis = 'bahan'";
@@ -176,6 +182,12 @@
     Function LPBPOPembelian($pid){
         require 'db.php';
         $sqlKirimPembelian = "SELECT pb.Barang_idBarang,b.namaBarang,pb.qty,pb.harga,pb.saldo FROM pembelianPO_has_barang pb , barang b where pb.PembelianPO_id = '".$pid."' and pb.Barang_idBarang = b.idBarang";
+        $resultKirimPembelian = mysqli_query($link, $sqlKirimPembelian);
+        return $resultKirimPembelian;
+    }
+    Function ReturPenjualanBarang($pid){
+        require 'db.php';
+        $sqlKirimPembelian = "SELECT pb.Barang_idBarang,b.namaBarang,pb.kuantitas,pb.harga FROM penjualan_has_barang pb , barang b where pb.Penjualan_idNota = '".$pid."' and pb.Barang_idBarang = b.idBarang";
         $resultKirimPembelian = mysqli_query($link, $sqlKirimPembelian);
         return $resultKirimPembelian;
     }
@@ -256,6 +268,7 @@
         if($jabatan == "Gudang" || $jabatan == "Pemilik"){
           echo "<li><a href=tambahbahan.php><i class='fa fa-circle-o'></i> Tambah Bahan</a></li>";
           echo "<li><a href=returbarang.php><i class='fa fa-circle-o'></i> Retur Barang</a></li>";
+          echo "<li><a href=penerimaanreturpenjualan.php><i class='fa fa-circle-o'></i> Penerimaan Retur Penjualan</a></li>";
         }
         if($jabatan == "Gudang" || $jabatan == "Pemilik" ||$jabatan == "Pembelian" || $jabatan == "Penjualan"){
           echo  "</ul>

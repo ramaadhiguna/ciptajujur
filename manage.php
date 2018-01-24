@@ -485,6 +485,29 @@ switch ($act) {
 	}
 	break;
 
+	case "returpenjualanbarang":
+	require 'db.php';
+	$sql;
+	$noNota = $_POST["noNota"];
+	$barang_id = $_POST["barang_id"];
+	$qty= $_POST["qty"];
+	$sql = "UPDATE `penjualan_has_barang` SET `kuantitas` = kuantitas - ".$qty." WHERE `Penjualan_idNota` = ".$noNota." and `Barang_idBarang`= '".$barang_id."'";
+	//$sql ="INSERT INTO `pembelian_has_barang` (`id`, `Pembelian_id`, `Barang_idBarang`, `kuantitas`, `harga`) VALUES ('1', '180121003', 'asdas', '1', '10000');";
+	$result = mysqli_query($link,$sql);
+	if($result){
+		$sqlKurang = "UPDATE `barang` SET kuantitas = kuantitas + ".$qty." WHERE idBarang = '".$barang_id."'";
+		$resultKurang = mysqli_query($link,$sqlKurang);
+		if($resultKurang){
+		}
+		else{
+			echo "gagal";
+		}		
+	}
+	else{
+		echo "gagal";
+	}
+	break;
+
 	case "insertpembelianbahan":
 	require 'db.php';
 	$sql;
