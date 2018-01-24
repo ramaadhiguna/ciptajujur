@@ -1,0 +1,54 @@
+
+#labelsuratjalan {
+  text-align: center;
+  font-size: 25px;
+}
+p {
+  text-align: center;
+}
+
+#tuan_toko {
+  text-align: right;
+  font-size: 15px;
+  float: right;
+}
+
+#labelheadernota {
+  text-align: right;
+}
+
+#nomor_nota {
+  float: left;
+    font-size: 15px;
+}
+
+#tabelbarang {
+  margin: auto;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#tanda_terima {
+  float: left;
+  text-align: center;
+  margin-right: 10%;
+}
+
+#hormat_kami {
+  float: left;
+  text-align: center;
+}
+
+
+#body_nota {
+  clear: both;
+}
+
+.fonttable {
+  font-size: 15px;
+}
+
+#wrapper {
+  margin-right: 2%;
+  margin-left: 2%
+}

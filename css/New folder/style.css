@@ -1,0 +1,512 @@
+html {
+    background-color: dimgrey;
+}
+body {
+    background-color: dimgrey;
+    margin: 0px;
+}
+#header {
+    background-color: #bce8f1;
+    margin: 0px;
+    padding: 15px;
+    font-size: 40px;
+    font-family: Prototype!important;
+    color: black;
+}
+#header header {
+    text-align: center;
+}
+#header img {
+    width: 100px;
+    height: auto;
+    float: left;
+    margin-left: 40px;
+}
+
+.navbar-default {
+    background-color: #f8f8f8;
+    border-color: #e7e7e7;
+    height: 100%;
+}
+#side-menu {
+    background-color: dimgrey;
+    font-size: 20px;
+    font-family: SquareFont!important;
+    height: 100%;
+}
+#side-menu a {
+    color: #fff;
+    border-bottom: 1px solid seagreen !important;
+    height: 60px;
+    background-color: #4cae4c;
+}
+#side-menu a.selected {
+    background-color: dimgrey;
+    color: yellow;
+}
+#side-menu a.selected:hover {
+    background-color: dimgrey;
+}
+#side-menu a:hover {
+    background-color: seagreen;
+}
+#side-menu a:focus {
+    background-color: seagreen;
+}
+#side-menu img {
+    width: 30px;
+    height: auto;
+}
+#side-menu a .arrow {
+    text-align: right;
+    float: right;
+}
+#side-menu a .arrow img {
+    width: 15px;
+    height: auto;
+}
+#side-menu #coll1 #collapsible a {
+    background-color: #4cae4c;
+    font-size: 16px;
+}
+#side-menu #coll1 #collapsible a.selected {
+    background-color: dimgrey;
+    font-size: 16px;
+}
+#side-menu #coll1 #collapsible a:hover {
+    background-color: seagreen;
+}
+#side-menu #coll1 #collapsible a.selected:hover {
+    background-color: dimgrey;
+}
+#side-menu #coll1 #collapsible img {
+    width: 15px;
+    height: auto;
+}
+#side-menu #coll2 #collapsible2 a {
+    background-color: #4cae4c;
+    font-size: 16px;
+}
+#side-menu #coll2 #collapsible2 a.selected {
+    background-color: dimgrey;
+}
+#side-menu #coll2 #collapsible2 a:hover {
+    background-color: seagreen;
+}
+#side-menu #coll2 #collapsible a.selected:hover {
+    background-color: dimgrey;
+}
+#side-menu #coll2 #collapsible2 img {
+    width: 15px;
+    height: auto;
+}
+#side-menu #logout {
+    position: fixed;
+    bottom: 0;
+}
+#theSidebar {
+    width: 20%;
+    margin: 0px;
+    float: left;
+    background-color: dimgrey;
+}
+#theCenterbar {
+    background-color: dimgrey;
+    width: 80%;
+    float: right;
+    height: auto;
+    padding-bottom: 28px;
+    padding-left: 20px;
+}
+#theCenterbar h1 {
+    margin-left: 90px;
+    font-weight: bold;
+    color: yellow;
+}
+#theCenterbar legend {
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 25px;
+    color: gold;
+}
+#theCenterbar legend.lgd {
+    padding-left: 95px;
+    text-decoration: none;
+    border-bottom: 0px;
+    color: black;
+    margin-bottom: 40px;
+}
+#theCenterbar legend.judul {
+    font-size: 38px;
+    color: yellow;
+}
+#theCenterbar legend.grouping {
+    border-bottom: dashed;
+}
+
+#label {
+    text-align: right;
+    float: left;
+    margin: 20px;
+    margin-left: 90px;
+    font-size: 25px;
+}
+#label label.lbl {
+    margin-top: 10px;
+}
+#label2 {
+    text-align: right;
+    float: left;
+    margin-left: 90px;
+    margin-right: 20px;
+    font-size: 25px;
+}
+#label2 label.lbl {
+    margin-top: 10px;
+}
+#form1 {
+    text-align: left;
+    float: left;
+    margin-top: 23px;
+    font-size: 20px;
+}
+#form1 #inp2 {
+    margin-top: 5px;
+}
+#form1 #inp3 {
+    margin-top: 13px;
+}
+#form1 button {
+    margin-top: 10px;
+    font-weight: bold;
+}
+#theTable {
+    clear: both;
+    margin-top: 160px;
+    margin-left: 90px;
+    font-size: 16px;
+}
+#theTable th {
+    background-color: #428bca;
+}
+#theTable tr:nth-child(odd) {
+    background-color: #bce8f1;
+}
+#theTable tr:nth-child(even) {
+    background-color: #d9edf7;
+}
+#theTable tr td.delete {
+    text-align: center;
+}
+#theTable tr td.delete img {
+    width: 25px;
+    height: auto;
+}
+#grandttl {
+    font-size: 18px;
+    margin-top: 10px;
+    text-align: right;
+    width: 95%;
+}
+#grandttl input {
+    font-weight: bold;
+    width: 150px;
+}
+#form2 {
+    font-weight: bold;
+    font-size: 25px;
+    margin-left: 90px;
+}
+#form3 {
+    text-align: left;
+    float: left;
+    font-size: 20px;
+}
+#form3 #inp3 {
+    margin-top: 18px;
+}
+#form3.frm3 #inp3 {
+    margin-top: 15px;
+}
+#form3 select {
+    margin-bottom: 5px;
+    padding: 0px 5px;
+}
+#form3 button {
+    margin-top: 10px;
+    font-weight: bold;
+}
+#form3.btn {
+    clear: both;
+    margin-left: 40%;
+}
+#form4 {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 90px;
+    margin-top: 20px;
+}
+#form4.laporan {
+    font-weight: bold;
+    font-size: 20px;
+    margin-left: 90px;
+    margin-top: 38px;
+}
+
+/*Tabel Laporan*/
+#tableLap {
+    clear: both;
+    margin-top: auto;
+    margin-left: 90px;
+    font-size: 16px;
+}
+#tableLap th {
+    background-color: #428bca;
+}
+#tableLap tr:nth-child(odd) {
+    background-color    : #bce8f1;
+}
+#tableLap tr:nth-child(even) {
+    background-color: #d9edf7;
+}
+#tableLap tr td.delete {
+    text-align: center;
+}
+#tableLap tr td.delete img {
+    width: 25px;
+    height: auto;
+}
+
+/*button Cek*/
+#form4 .button2 {
+    position: relative;
+    background-color: #428bca;
+    border: none;
+    color: #FFFFFF;
+    padding: 0px 5px;
+    margin: 5px 5px;
+    width: auto;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+/*transisi button Lanjut*/
+.button {
+    border-radius: 4px;
+    background-color: #428bca;
+    color: #ffffff;
+    border: none;
+    text-align: center;
+    font-size: 28px;
+    padding: 10px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.button span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+}
+.button:hover span {
+    padding-right: 25px;
+}
+.button:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+
+/*transisi button Tambah*/
+.button2 {
+    position: relative;
+    background-color: #428bca;
+    border: none;
+    color: #FFFFFF;
+    padding: 5px;
+    margin: 5px 0px;
+    width: 150px;
+    text-align: center;
+    transition-duration: 0.4s;
+    text-decoration: none;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.button2:after {
+    content: "";
+    background: #bce8f1;
+    display: block;
+    position: absolute;
+    padding-top: 300%;
+    padding-left: 350%;
+    margin-left: -20px!important;
+    margin-top: -120%;
+    opacity: 0;
+    transition: all 0.8s
+}
+.button2:active:after {
+    padding: 0;
+    margin: 0;
+    opacity: 1;
+    transition: 0s
+}
+
+/*transisi button kembali*/
+.button3 {
+    border-radius: 4px;
+    background-color: #428bca;
+    color: #ffffff;
+    border: none;
+    text-align: center;
+    font-size: 20px;
+    padding: 5px;
+    width: 150px;
+    transition: all 0.5s;
+    cursor: pointer;
+}
+.button3 span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+}
+.button3 span:after {
+    content: '«';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: -20px;
+    transition: 0.5s;
+}
+.button3:hover span {
+    padding-left: 25px;
+}
+.button3:hover span:after {
+    opacity: 1;
+    left: 0;
+}
+
+#login {
+    background-color: dimgrey;
+    padding: 1px;
+}
+#login table {
+    margin: auto;
+    margin-top: 10%;
+}
+#login table th {
+    font-size: 30px;
+    font-family: Prototype!important;
+    background-color: #bce8f1;
+    
+}
+#login table td {
+    background-color: white;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+#login.menuadmin {
+    background-color: dimgrey;
+    padding-top: 1px;
+    padding-bottom: 12%;
+}
+#login table.menuadmin {
+    margin: auto;
+    margin-top: 10%;
+}
+#login table.menuadmin td {
+    border: 1px solid;
+    font-family: Prototype!important;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    text-align: center;
+    width: 10%;
+}
+#login table.menuadmin td img {
+    width: 90px;
+    height: auto;
+}
+#login table.menuadmin td a {
+    color: black;
+}
+#login table.menuadmin td a:hover {
+    color: #2b542c;
+    text-decoration: none;
+}
+
+#login #form1.lbllog {
+    text-align: right;
+    float: left;
+    width: 35%;
+}
+#login #form1.log {
+    text-align: left;
+    float: right;
+    width: 62%;
+    margin-left: 3%;
+}
+#login #form1 .button {
+    background-color: tomato;
+    padding: 5px 10px;
+    width: 150px;
+    font-size: 20px;
+}
+
+#formEditBarang {
+    text-align: left;
+    font-size: 20px;
+    border: black;
+    border-style: dashed;
+    border-width: 2px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    width: 65%;
+}
+#formEditBarang form {
+    margin-bottom: 10%;
+}
+#formEditBarang #inp3 {
+    margin-top: 18px;
+}
+#formEditBarang #inp4 {
+    margin-top: 10px;
+}
+#formEditBarang select {
+    margin-bottom: 5px;
+    padding: 0px 5px;
+}
+#formEditBarang button {
+    margin-top: 10px;   
+    font-weight: bold;
+}
+#formEditBarang.btn {
+    clear: both;
+    margin-left: 40%;
+}
+
+@font-face {
+    font-family: 'SquareFont';
+    src: local('SquareFont')!important;
+    src: url('fonts/Square.ttf')!important;
+}
+@font-face {
+    font-family: 'Prototype';
+    src: local('Prototype')!important;
+    src: url('fonts/Prototype.ttf')!important;
+}

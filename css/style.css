@@ -1,0 +1,50 @@
+.table-informasi {
+	width: 95%;
+	margin-left: 20px;
+	margin-top: 30px;
+    text-align: center;
+}
+
+.table-informasi td {
+	padding: 10px;
+    font-size: 15px;
+}
+
+.table-informasi th {
+	text-align: center;
+	padding: 5px;
+	background-color: #3870d1;
+	color: white;
+    font-size: 15px;
+}
+
+.table-informasi tr:nth-child(even) {
+	background-color: #c5c8cc;
+}
+
+.table-informasi tr:after {
+    content: ' ';
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
+
+.table-informasi thead th {
+    height: 30px;
+}
+
+.table-informasi tbody {
+    height: 420px;
+     overflow-y: auto;
+}
+
+
+.table-informasi tbody td, thead th {
+    width: 19.2%;
+    float: left;
+}
+
+.table-informasi thead,tbody,tr,td,th {
+    display: block;
+}   
+

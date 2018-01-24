@@ -1,0 +1,26 @@
+#form_block_bahan {
+
+    margin-top: 50px;
+    width: 50%;
+    margin-left: 50px;
+    
+    
+}
+
+#form_block_barang {
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 50%;
+
+}
+
+#form_block_karyawan {
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 50%;
+}
+
+
+#form_bahan_barang_karyawan td {
+    text-align: right;
+}
