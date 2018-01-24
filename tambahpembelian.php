@@ -105,6 +105,8 @@
         <li class="header">MENU</li>
         <?php 
         Tunjukan($jabatan);
+        $tampung = array();
+        $tampungb = array();
         ?>
       
         <li class="header">LABELS</li>
@@ -211,6 +213,7 @@
                           <option value="" disabled selected style="display: none;">[Pilih Barang]</option>
                           <?php 
                             while($rowBarang = mysqli_fetch_object($resultB)){
+                              array_push($tampung, $rowBarang->idBarang);
                               echo "<option value='".$rowBarang->idBarang."'>".$rowBarang->idBarang ."&nbsp;-&nbsp;". $rowBarang->namaBarang."</option>";
                             }
                           ?>                   
@@ -258,7 +261,7 @@
                     <div class="form-group" id="divIdBarang">
                       <label class="col-sm-3 control-label">Id Barang</label>
                       <div class="col-sm-9">
-                        <input type="text" min="0" name="id-barangBaru[]" class="selectpicker form-control" data-live-search="true" placeholder="Id Barang"/>
+                        <input type="text" min="0" name="id-barangBaru[]" id="idBarangBaru" class="selectpicker form-control" data-live-search="true" placeholder="Id Barang"/>
                       </div>
                     </div>
                     <div class="form-group" id="divNamaBarang">
@@ -325,6 +328,7 @@
                           <option value="" disabled selected style="display: none;">[Pilih Bahan]</option>
                           <?php 
                             while($rowBarang = mysqli_fetch_object($resultBahan)){
+                              array_push($tampungb, $rowBarang->id);
                               echo "<option value='".$rowBarang->id."'>".$rowBarang->id." - ".$rowBarang->nama."</option>";
                             }
                           ?>                   
@@ -372,7 +376,7 @@
                     <div class="form-group" id="divIdBarang">
                       <label class="col-sm-3 control-label">Kode Bahan</label>
                       <div class="col-sm-9">
-                        <input type="text" min="0" name="id-bahanBaru[]" class="form-control" placeholder="Id Barang"/>
+                        <input type="text" min="0" name="id-bahanBaru[]" id="idBahanBaru" class="form-control" placeholder="Id Barang"/>
                       </div>
                     </div>
                     <div class="form-group" id="divNamaBarang">
@@ -475,6 +479,7 @@
 <!-- page script -->
 <!-- script untuk search -->
 <script>
+$(document).ready(function() {  
   var htmlBarang = $('#formBarang:eq(0)')[0].outerHTML;
   var htmlBahan = $('#formBahan:eq(0)')[0].outerHTML;
   var htmlBarangBaru = $('#formBarangBaru:eq(0)')[0].outerHTML;
@@ -503,7 +508,32 @@
   $("#form_bahan_baru").on('click', '#removeBarub', function(){
         $(this).closest('#formBahanBaru').remove();
   })
-
+  $("#idBarangBaru").on('input',function(e){
+        var ada =0;
+        var id = $(this).val();
+        var cekid = <?php echo json_encode($tampung); ?>;     
+        for(i=0;i<cekid.length;i++){
+          if(cekid[i]==id){
+            ada++;
+          }
+        }
+        if(ada>0){
+          alert("Terdapat duplikasi Kode pada kode baru barang produksi");
+        }
+      });
+  $("#idBahanBaru").on('input',function(e){
+        var ada =0;
+        var id = $(this).val();
+        var cekid = <?php echo json_encode($tampungb); ?>;     
+        for(i=0;i<cekid.length;i++){
+          if(cekid[i]==id){
+            ada++;
+          }
+        }
+        if(ada>0){
+          alert("Terdapat duplikasi Kode pada kode baru barang produksi");
+        }
+      });
   $("#submit").click(function(){
     
     var noNota;
@@ -712,6 +742,7 @@
       '</div>'
     }
   }
+})(jQuery);
 </script>
 </body>
 </html>
