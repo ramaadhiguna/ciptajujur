@@ -137,6 +137,7 @@
     </section>
     <?php
   require "db.php";
+  $tampung = array();
   $arrayBahan = array();
   $arrayBarang = array();
   $arrayBarangBaru = array();
@@ -207,6 +208,7 @@
                           }
                         while($rowProduksiBahan=mysqli_fetch_object($resultA)){
                           if(!in_array($rowProduksiBahan->idBarang, $tampungBahan)){
+                            array_push($tampung, $rowProduksiBahan->idBarang);
                           echo "<option value='".$rowProduksiBahan->idBarang."|".$rowProduksiBahan->namaBarang."|".$rowProduksiBahan->kuantitas."'>".$rowProduksiBahan->idBarang." - ".$rowProduksiBahan->namaBarang."
                               </option>";}
                               }?>
@@ -468,6 +470,19 @@
 <script>
   (function($){
   $(document).ready(function() {
+      $("#idBarangBaru").keyup(function(){
+        var ada =0;
+        var id = $(this).val();
+        var cekid = <?php echo json_encode($tampung); ?>;     
+        for(i=0;i<cekid.length;i++){
+          if(cekid[i]==id){
+            ada++;
+          }
+        }
+        if(ada>0){
+          alert("Terdapat duplikasi Kode pada kode baru barang produksi");
+        }
+      });
       $('#nBahan').change(function(){
           var tampung = $(this).val().split("|");
           var angka = 1 * tampung[2];
