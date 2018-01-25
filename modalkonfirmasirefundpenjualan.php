@@ -17,7 +17,7 @@
                       <label for=inputBayarn class=col-sm-2 control-label>Total Kewajiban</label>
                         <div class=col-sm-10>
                           <select disabled class=form-control>
-                            <option>".(($rowBayar->total - $rowBayar->saldo)*-1)."</option>                                        
+                            <option>".number_format((($rowBayar->total - $rowBayar->saldo)*-1),0,".",".")."</option>                                        
                           </select>
                         </div>
                       </div>
