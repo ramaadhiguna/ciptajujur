@@ -164,7 +164,7 @@
                         echo $rowBarang->idBarang."-".$rowBarang->namaBarang." x ".$rowBarang->kuantitas." Buah";
                       }
                       else{
-                        echo $rowBarang->namaBarang." = ".$rowBarang->kuantitas." x Rp".$rowBarang->harga.",00 = Rp".$rowBarang->kuantitas*$rowBarang->harga.",00";
+                        echo $rowBarang->namaBarang." = ".$rowBarang->kuantitas." x Rp ".number_format($rowBarang->harga,0,".",".")." = Rp ".number_format(($rowBarang->kuantitas*$rowBarang->harga),0,".",".")."";
                       }
                       echo "</br>";
                     }

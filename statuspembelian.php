@@ -162,14 +162,14 @@
                     echo "<td>";
                     $resultBarang = PembelianBarangPO($rowPembelian->id);
                     while($rowBarang = mysqli_fetch_object($resultBarang)){
-                      echo $rowBarang->idBarang."-".$rowBarang->namaBarang." = ".$rowBarang->qty." x Rp".$rowBarang->harga.",00 = Rp".$rowBarang->qty*$rowBarang->harga.",00 | Kurang ='".($rowBarang->saldo-$rowBarang->qty)."'";
+                      echo $rowBarang->idBarang."-".$rowBarang->namaBarang." = ".$rowBarang->qty." x Rp ".number_format($rowBarang->harga,0,".",".")." = Rp ".number_format($rowBarang->qty*$rowBarang->harga,0,".",".")." | Kurang ='".($rowBarang->saldo-$rowBarang->qty)."'";
                       echo "</br>";
                       $tqty += $rowBarang->qty;
                       $tsaldo += $rowBarang->saldo;
                     }
                     $resultBahan = PembelianBahanPO($rowPembelian->id);
                     while($rowBahan = mysqli_fetch_object($resultBahan)){
-                      echo $rowBahan->id."-".$rowBahan->nama." = ".$rowBahan->panjang." x Rp".$rowBahan->harga.",00 = Rp".$rowBahan->harga.",00 | Kurang ='".($rowBahan->saldo-$rowBahan->panjang)."'";
+                      echo $rowBahan->id."-".$rowBahan->nama." = ".$rowBahan->panjang." x Rp ".number_format($rowBahan->harga,0,".",".")." = Rp".number_format($rowBahan->harga,0,".",".").",00 | Kurang ='".($rowBahan->saldo-$rowBahan->panjang)."'";
                       echo "</br>";
                       $tqty += $rowBahan->panjang;
                       $tsaldo += $rowBahan->saldo;

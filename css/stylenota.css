@@ -34,8 +34,14 @@ p {
   margin-right: 10%;
 }
 
-#hormat_kami {
+#pengirim_barang {
   float: left;
+  text-align: center;
+}
+
+#hormat_kami {
+  margin-right: 5%;
+  float: right;
   text-align: center;
 }
 

@@ -39,12 +39,12 @@
           $totalHutang+= $rowTotalBahan->total;
           # code...
         }
-
         echo "<td> Rp " . number_format($totalHutang,0,".",".") . "</td>";
         echo "<td>" . $row->tanggal_jatuh_tempo . "</td>";
           # code...
-        }
         echo "</tr>";
+        }
+        
         echo "<tr>";
         echo "<td colspan=2> Total </td>";
         echo "<td> Rp " . number_format($totalHutang,0,".",".") . "</td>";

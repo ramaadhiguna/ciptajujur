@@ -72,14 +72,21 @@
   <br>
    </div>
   <div id="tanda_terima">
-  Hormat Kami
+  Tanda Terima
+  <br>
+  <br>
+  <br>
+  (...............)
+  </div>
+  <div id="pengirim_barang">
+  Pengirim Barang
   <br>
   <br>
   <br>
   (...............)
   </div>
   <div id="hormat_kami">
-  Pengirim Barang
+  Hormat Kami
   <br>
   <br>
   <br>

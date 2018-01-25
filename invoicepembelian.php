@@ -163,13 +163,13 @@
                     $resultBarang = PembelianBarang($rowPembelian->id);
                     while($rowBarang = mysqli_fetch_object($resultBarang)){
                       $total += $rowBarang->kuantitas*$rowBarang->harga;
-                      echo $rowBarang->idBarang."-".$rowBarang->namaBarang." = ".$rowBarang->kuantitas." x Rp".$rowBarang->harga.",00 = Rp".$rowBarang->kuantitas*$rowBarang->harga.",00";
+                      echo $rowBarang->idBarang."-".$rowBarang->namaBarang." = ".$rowBarang->kuantitas." x Rp ".number_format($rowBarang->harga,0,".",".")." = Rp ".number_format(($rowBarang->kuantitas*$rowBarang->harga),0,".",".")."";
                       echo "</br>";
                     }
                     $resultBahan = PembelianBahan($rowPembelian->id);
                     while($rowBahan = mysqli_fetch_object($resultBahan)){
                       $total += $rowBahan->kuantitas*$rowBahan->harga;
-                      echo $rowBahan->id."-".$rowBahan->nama." = ".$rowBahan->kuantitas." x Rp".$rowBahan->harga.",00 = Rp".$rowBahan->kuantitas*$rowBahan->harga.",00";
+                      echo $rowBahan->id."-".$rowBahan->nama." = ".$rowBahan->kuantitas." x Rp ".number_format($rowBahan->harga,0,".",".")." = Rp ".number_format(($rowBahan->kuantitas*$rowBahan->harga),0,".",".")."";
                       echo "</br>";
                     }
                     echo "</td>";
