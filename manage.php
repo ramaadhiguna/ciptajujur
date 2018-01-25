@@ -497,7 +497,7 @@ switch ($act) {
 	//$sql ="INSERT INTO `pembelian_has_barang` (`id`, `Pembelian_id`, `Barang_idBarang`, `kuantitas`, `harga`) VALUES ('1', '180121003', 'asdas', '1', '10000');";
 	$result = mysqli_query($link,$sql);
 	if($result){
-		$sqlKurang = "INSERT INTO `barang`(`idBarang`,`namaBarang`,`kuantitas`,`satuan`,`keterangan`) VALUES('".$barang_id."RSK','".$nama."','".$qty."','".$satuan."','Barang rusak dengan kode =".$barang_id."')";
+		$sqlKurang = "INSERT INTO `barang`(`idBarang`,`namaBarang`,`kuantitas`,`satuan`,`keterangan`) VALUES('".$barang_id."RSK','".$nama." Rusak','".$qty."','".$satuan."','Barang rusak dengan kode =".$barang_id."')";
 		$resultKurang = mysqli_query($link,$sqlKurang);
 		if($resultKurang){
 		}
@@ -522,7 +522,7 @@ switch ($act) {
 	//$sql ="INSERT INTO `pembelian_has_barang` (`id`, `Pembelian_id`, `Barang_idBarang`, `kuantitas`, `harga`) VALUES ('1', '180121003', 'asdas', '1', '10000');";
 	$result = mysqli_query($link,$sql);
 	if($result){
-		$sqlKurang = "UPDATE `barang` SET kuantitas = kuantitas + ".$qty." WHERE idBarang = '".$barang_id."'";
+		$sqlKurang = "UPDATE `barang` SET kuantitas = kuantitas + ".$qty." WHERE idBarang = '".$barang_id."RSK'";
 		$resultKurang = mysqli_query($link,$sqlKurang);
 		if($resultKurang){
 		}
