@@ -33,28 +33,33 @@
         $resultTotalBarang = mysqli_query($link,$sqlCekTotalBarang);
         while ($rowCekTotalBarang = mysqli_fetch_object($resultTotalBarang)) {
           $totalHutang+=$rowCekTotalBarang->total;
-          $totalHutangBarang+=$totalHutang;
+          
           # code...
         }
+        $totalHutangBarang+=$totalHutang;
+        
         $sqlCekTotalBahan = "SELECT p.id, sum(pb.kuantitas*pb.harga) as total FROM pembelian p, pembelian_has_bahan pb WHERE p.id = pb.Pembelian_id and p.id = ".$row->id." group by p.id";
         $resultTotalBahan = mysqli_query($link,$sqlCekTotalBahan);
         while ($rowCekTotalBahan = mysqli_fetch_object($resultTotalBahan)) {
           $totalHutang+=$rowCekTotalBahan->total;
-          $totalHutangBahan+=$totalHutang;
+          
           # code...
         }
+        $totalHutangBahan+=$totalHutang;
+        
         if ($row->saldo < $totalHutang) {
           echo "<tr>";
-          echo "<td>" . $row->Supplier_idSupplier . "</td>";
-          echo "<td>" . $row->tanggal ."</td>";
+          echo "<td>" . $row->Supplier_idSupplier; var_dump($totalHutangBarang). "</td>";
+          echo "<td>" . $row->tanggal; var_dump($totalHutangBahan) ."</td>";
           echo "<Td> Rp ". number_format($totalHutang,0,".",".") . " </td>";
           echo "<td>" . $row->tanggal_jatuh_tempo ."</td>";
           echo "</tr>";
         }
+        $grandTotalHutang = $totalHutangBahan + $totalHutangBarang;
       }
         echo "<tr>";
         echo "<td colspan=2> Total </td>";
-        echo "<td> ini bagian Grandtotal </td>";
+        echo "<td> ".$grandTotalHutang . "----" . $totalHutangBahan ." </td>";
         echo "</tr>";         
       ?> 
   </table>

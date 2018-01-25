@@ -326,6 +326,7 @@
           }
         if($jabatan == "Pemilik"){
           echo "<li><a href=invoicepembelian.php><i class='fa fa-circle-o'></i> Invoice Pembelian</a></li>";
+          echo "<li><a href=hutangsupplier.php target=blank><i class='fa fa-circle-o'></i> Informasi Utang ke Supplier</a></li>";
         }
         if($jabatan == "Pembelian" || $jabatan == "Pemilik"){
           echo "</ul>

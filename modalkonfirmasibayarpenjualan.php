@@ -1,17 +1,11 @@
 <?php
-	$servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "tajuk";
-
-    $koneksi = new mysqli($servername, $username, $password, $dbname);
     require 'db.php';
     require 'sql.php';
 
 		if($_POST['rowid']) {
         $id = $_POST['rowid'];
         $result = PembayaranPenjualan($id);
-        foreach ($result as $baris) { ?>
+        if($row=mysqli_fetch_object($result)) { ?>
             <fieldset>
               <legend style="text-align: center;">Pembayaran Nota Penjualan</legend>
               <form class="form-horizontal" action="manage.php?act=insertpembayaranpenjualan" method="POST">
@@ -64,5 +58,4 @@
  
         }
     }
-    $koneksi->close();
 ?>
