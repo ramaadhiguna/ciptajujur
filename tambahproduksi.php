@@ -470,7 +470,7 @@
 <script>
   (function($){
   $(document).ready(function() {
-      $("#idBarangBaru").keyup(function(){
+      $("#idBarangBaru").on('input',function(e){
         var ada =0;
         var id = $(this).val();
         var cekid = <?php echo json_encode($tampung); ?>;     
