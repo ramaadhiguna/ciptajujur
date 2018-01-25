@@ -67,6 +67,10 @@ $cmd = $_GET["cmd"];
           <!-- User Account: style can be found in dropdown.less -->
           <li class="dropdown user user-menu">
             <?php
+            $tampung = array();
+            while($rowb = mysqli_fetch_object($resultB)){
+              array_push($tampung, $rowb->idBarang);
+            }
             $idkaryawan = $_SESSION["logkaryawan"];
             $result = Karyawan($idkaryawan);
             $usernameKaryawan;
@@ -277,17 +281,38 @@ $cmd = $_GET["cmd"];
           }
       }});
       }
-      else if(terima[i]==terima){
-        $.ajax({
-        type: "POST",
-        url: "manage.php?act=returpenjualanbarangrusak",
-        data: 'noNota=' + id+ '&barang_id=' + barang[i]+ '&qty=' + qty[i] +'&nama='+nama[i]+'$satuan='+satuan[i],
-        success: function(result) {
-          selesai++;
-          if(selesai == barang.length){
-            window.location ="penerimaanreturpenjualan.php";
+      else if(terima[i]=="terima"){
+        var ada =0;
+        var cekid = <?php echo json_encode($tampung); ?>;     
+        for(j=0;j<cekid.length;j++){
+          if(cekid[j]==barang[i]+"RSK"){
+            ada++;
           }
-      }});
+        }
+        if(ada>0){
+          $.ajax({
+          type: "POST",
+          url: "manage.php?act=returpenjualanbarangrusakupdate",
+          data: 'noNota=' + id+ '&barang_id=' + barang[i]+ '&qty=' + qty[i] +'&nama='+nama[i]+'&satuan='+satuan[i],
+          success: function(result) {
+            selesai++;
+            if(selesai == barang.length){
+              window.location ="penerimaanreturpenjualan.php";
+            }
+        }});
+        }
+        else{
+          $.ajax({
+          type: "POST",
+          url: "manage.php?act=returpenjualanbarangrusak",
+          data: 'noNota=' + id+ '&barang_id=' + barang[i]+ '&qty=' + qty[i] +'&nama='+nama[i]+'$satuan='+satuan[i],
+          success: function(result) {
+            selesai++;
+            if(selesai == barang.length){
+              window.location ="penerimaanreturpenjualan.php";
+            }
+        }});
+        }
       }
     } 
   });

@@ -493,11 +493,36 @@ switch ($act) {
 	$qty= $_POST["qty"];
 	$nama = $_POST["nama"];
 	$satuan = $_POST["satuan"];
-	$sql = "UPDATE `pembelian_has_barang` SET `kuantitas` = kuantitas - ".$qty." WHERE `Pembelian_id` = ".$noNota." and `Barang_idBarang`= '".$barang_id."'";
+	$sql = "UPDATE `penjualan_has_barang` SET `kuantitas` = kuantitas - ".$qty." WHERE `Penjualan_idNota` = ".$noNota." and `Barang_idBarang`= '".$barang_id."'";
 	//$sql ="INSERT INTO `pembelian_has_barang` (`id`, `Pembelian_id`, `Barang_idBarang`, `kuantitas`, `harga`) VALUES ('1', '180121003', 'asdas', '1', '10000');";
 	$result = mysqli_query($link,$sql);
 	if($result){
-		$sqlKurang = "INSERT INTO `barang`(`idBarang`,`namaBarang`,`kuantitas`,`satuan`,`keterangan`) VALUES('".$barang_id."RSK','".$nama."','".$qty."','".$satuan."','Barang rusak dengan kode =".$barang_id."')";
+		$sqlKurang = "INSERT INTO `barang`(`idBarang`,`namaBarang`,`kuantitas`,`satuan`,`keterangan`) VALUES('".$barang_id."RSK','".$nama." Rusak','".$qty."','".$satuan."','Barang rusak dengan kode =".$barang_id."')";
+		$resultKurang = mysqli_query($link,$sqlKurang);
+		if($resultKurang){
+		}
+		else{
+			echo "gagal";
+		}		
+	}
+	else{
+		echo "gagal";
+	}
+	break;
+
+	case "returpenjualanbarangrusakupdate":
+	require 'db.php';
+	$sql;
+	$noNota = $_POST["noNota"];
+	$barang_id = $_POST["barang_id"];
+	$qty= $_POST["qty"];
+	$nama = $_POST["nama"];
+	$satuan = $_POST["satuan"];
+	$sql = "UPDATE `penjualan_has_barang` SET `kuantitas` = kuantitas - ".$qty." WHERE `Penjualan_idNota` = ".$noNota." and `Barang_idBarang`= '".$barang_id."'";
+	//$sql ="INSERT INTO `pembelian_has_barang` (`id`, `Pembelian_id`, `Barang_idBarang`, `kuantitas`, `harga`) VALUES ('1', '180121003', 'asdas', '1', '10000');";
+	$result = mysqli_query($link,$sql);
+	if($result){
+		$sqlKurang = "UPDATE `barang` SET kuantitas = kuantitas + ".$qty." WHERE idBarang = '".$barang_id."RSK'";
 		$resultKurang = mysqli_query($link,$sqlKurang);
 		if($resultKurang){
 		}
