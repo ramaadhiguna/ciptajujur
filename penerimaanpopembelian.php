@@ -193,6 +193,7 @@ $cmd = $_GET["cmd"];
               <?php
               $resultKirim = LPBPOPembelian($cmd);
               while($rowKirim = mysqli_fetch_object($resultKirim)){
+              if(($rowKirim->qty-$rowKirim->saldo)>0){
               echo "<div class=box-body>
                       <div class=form-group>
                       <label for=inputNamaKaryawan class=col-sm-2 control-label>Nama Barang</label>
@@ -211,10 +212,14 @@ $cmd = $_GET["cmd"];
                       </div>              
                     </div>";
                   }
+                }
               ?>
               <?php
               $resultKirim = LPBPOPembelianBahan($cmd);
               while($rowKirimb = mysqli_fetch_object($resultKirim)){
+              if(($rowKirimb->panjang-$rowKirimb->saldo)>0){
+
+
               echo "<div class=box-body>
                       <div class=form-group>
                       <label for=inputNamaKaryawan class=col-sm-2 control-label>Nama Bahan</label>
@@ -233,6 +238,7 @@ $cmd = $_GET["cmd"];
                       </div>              
                     </div>";
                   }
+                }
               ?>
               <!-- /.box-body -->
               <div class="box-footer">

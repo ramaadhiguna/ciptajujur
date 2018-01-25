@@ -305,7 +305,7 @@ $cmd = $_GET["cmd"];
           $.ajax({
           type: "POST",
           url: "manage.php?act=returpenjualanbarangrusak",
-          data: 'noNota=' + id+ '&barang_id=' + barang[i]+ '&qty=' + qty[i] +'&nama='+nama[i]+'$satuan='+satuan[i],
+          data: 'noNota=' + id+ '&barang_id=' + barang[i]+ '&qty=' + qty[i] +'&nama='+nama[i]+'&satuan='+satuan[i],
           success: function(result) {
             selesai++;
             if(selesai == barang.length){
