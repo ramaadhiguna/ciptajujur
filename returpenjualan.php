@@ -277,7 +277,7 @@ $cmd = $_GET["cmd"];
           }
       }});
       }
-      else if(terima[i]==terima){
+      else if(terima[i]=="terima"){
         $.ajax({
         type: "POST",
         url: "manage.php?act=returpenjualanbarangrusak",
